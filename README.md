@@ -19,8 +19,8 @@ Planned API repo: https://github.com/AiratTop/random.api.airat.top
 - `%rand%` placeholder for random digit `0..9`.
 - Top-level `|` for paragraph shuffle.
 - Batch generation request from 1 to 1,000 lines with unique output only (no duplicates).
-- Output format switch: plain text or JSON array.
-- Copy, regenerate, and download as `.txt` or `.json` based on selected format.
+- Output format switch: plain text, JSON array, or CSV rows.
+- Copy, regenerate, and download as `.txt`, `.json`, or `.csv` based on selected format.
 - Local settings persistence (template, count, output format, theme).
 
 ## What is inside

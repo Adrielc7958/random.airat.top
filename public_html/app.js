@@ -4,7 +4,7 @@ const RANDOM_LIMITS = {
 };
 
 const THEMES = new Set(["auto", "light", "dark"]);
-const OUTPUT_FORMATS = new Set(["text", "json"]);
+const OUTPUT_FORMATS = new Set(["text", "json", "csv"]);
 
 const STORAGE_KEY = "random-airat-top-settings-v1";
 const OUTPUT_SEPARATOR = "\n\n";
@@ -549,7 +549,15 @@ function updateDownloadButtonLabel() {
   if (!ui.downloadLabel) {
     return;
   }
-  ui.downloadLabel.textContent = state.outputFormat === "json" ? "Download .json" : "Download .txt";
+  if (state.outputFormat === "json") {
+    ui.downloadLabel.textContent = "Download .json";
+    return;
+  }
+  if (state.outputFormat === "csv") {
+    ui.downloadLabel.textContent = "Download .csv";
+    return;
+  }
+  ui.downloadLabel.textContent = "Download .txt";
 }
 
 function setOutputFormat(format) {
@@ -613,9 +621,25 @@ function getJsonOutput() {
   return JSON.stringify(state.outputList, null, 2);
 }
 
+function escapeCsvCell(value) {
+  const text = String(value ?? "");
+  const escaped = text.replace(/"/g, "\"\"");
+  if (/[",\r\n]/.test(escaped)) {
+    return `"${escaped}"`;
+  }
+  return escaped;
+}
+
+function getCsvOutput() {
+  return state.outputList.map(escapeCsvCell).join("\r\n");
+}
+
 function getOutputText() {
   if (state.outputFormat === "json") {
     return getJsonOutput();
+  }
+  if (state.outputFormat === "csv") {
+    return getCsvOutput();
   }
   return getTextOutput();
 }
@@ -687,6 +711,13 @@ function downloadOutput() {
     return;
   }
 
+  if (state.outputFormat === "csv") {
+    const filename = `randomized${suffix}-${timestamp}.csv`;
+    downloadFile(`${output}\n`, filename, "text/csv;charset=utf-8");
+    setStatus(ui.status, "CSV downloaded.");
+    return;
+  }
+
   const filename = `randomized${suffix}-${timestamp}.txt`;
   downloadFile(`${output}\n`, filename, "text/plain;charset=utf-8");
   setStatus(ui.status, "TXT downloaded.");
@@ -728,7 +759,12 @@ function bindEvents() {
   });
 
   ui.copy.addEventListener("click", () => {
-    const label = state.outputFormat === "json" ? "JSON output" : "Output";
+    const label =
+      state.outputFormat === "json"
+        ? "JSON output"
+        : state.outputFormat === "csv"
+        ? "CSV output"
+        : "Output";
     copyText(getOutputText(), ui.status, label);
   });
 
@@ -738,7 +774,12 @@ function bindEvents() {
     if (event.target.closest("button")) {
       return;
     }
-    const label = state.outputFormat === "json" ? "JSON output" : "Output";
+    const label =
+      state.outputFormat === "json"
+        ? "JSON output"
+        : state.outputFormat === "csv"
+        ? "CSV output"
+        : "Output";
     copyText(getOutputText(), ui.status, label);
   });
 

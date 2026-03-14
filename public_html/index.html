@@ -6,11 +6,11 @@
     <title>random.airat.top | Text Randomizer</title>
     <meta
       name="description"
-      content="Generate unique randomized text locally in your browser with synonyms, permutations, nesting, %rand%, and Text/JSON output."
+      content="Generate unique randomized text locally in your browser with synonyms, permutations, nesting, %rand%, and Text/JSON/CSV output."
     />
     <meta
       name="keywords"
-      content="text randomizer, ad generator, synonyms, permutations, nested templates, %rand%, json output, unique output, local, offline, airattop"
+      content="text randomizer, ad generator, synonyms, permutations, nested templates, %rand%, json output, csv output, unique output, local, offline, airattop"
     />
     <meta name="author" content="AiratTop" />
 
@@ -19,7 +19,7 @@
     <meta property="og:title" content="random.airat.top" />
     <meta
       property="og:description"
-      content="Client-side text randomizer with unique output, synonyms, permutations, nesting, separator shuffle, %rand%, and Text/JSON modes."
+      content="Client-side text randomizer with unique output, synonyms, permutations, nesting, separator shuffle, %rand%, and Text/JSON/CSV modes."
     />
     <meta property="og:image" content="https://random.airat.top/screenshot.png" />
 
@@ -27,7 +27,7 @@
     <meta property="twitter:title" content="random.airat.top" />
     <meta
       property="twitter:description"
-      content="Generate unique randomized text in your browser with Text/JSON output. Private, local, and fast."
+      content="Generate unique randomized text in your browser with Text/JSON/CSV output. Private, local, and fast."
     />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -68,7 +68,7 @@
           <h1>Text Randomizer</h1>
           <p class="brand-subtitle">
             Browser-side randomizer with unique output, synonyms, permutations, unlimited nesting,
-            escaped symbols, separator shuffle, <code>%rand%</code>, and Text/JSON output modes.
+            escaped symbols, separator shuffle, <code>%rand%</code>, and Text/JSON/CSV output modes.
           </p>
         </div>
         <div class="brand-actions">
@@ -148,8 +148,11 @@
               <button class="format-button" type="button" data-output-format="json" aria-pressed="false">
                 JSON
               </button>
+              <button class="format-button" type="button" data-output-format="csv" aria-pressed="false">
+                CSV
+              </button>
             </div>
-            <small>Text lines or JSON array output.</small>
+            <small>Text lines, JSON array, or CSV rows output.</small>
           </label>
 
           <label class="field field--center">
