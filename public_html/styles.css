@@ -332,6 +332,12 @@ h1 {
   gap: 10px;
 }
 
+.template-head-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
 .field small {
   color: var(--muted);
   font-size: 12px;

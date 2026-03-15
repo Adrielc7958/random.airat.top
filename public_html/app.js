@@ -27,6 +27,7 @@ const ui = {
   reset: document.querySelector("#resetDefaults"),
   template: document.querySelector("#templateInput"),
   templateCopy: document.querySelector("#templateCopy"),
+  templateClear: document.querySelector("#templateClear"),
   presetButtons: Array.from(document.querySelectorAll("[data-template-preset]")),
   output: document.querySelector("#randomOutput"),
   outputWrap: document.querySelector("#randomOutputWrap"),
@@ -812,6 +813,15 @@ function bindEvents() {
   if (ui.templateCopy) {
     ui.templateCopy.addEventListener("click", () => {
       copyText(ui.template.value || "", ui.status, "Template");
+    });
+  }
+
+  if (ui.templateClear) {
+    ui.templateClear.addEventListener("click", () => {
+      ui.template.value = "";
+      ui.template.focus();
+      refreshOutput();
+      storeSettings();
     });
   }
 
