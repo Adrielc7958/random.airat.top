@@ -96,6 +96,50 @@
             <button class="preset-chip" type="button" data-template-preset="[+,+a|b|c]">[+,+a|b|c]</button>
             <button class="preset-chip" type="button" data-template-preset="%rand%">%rand%</button>
             <button class="preset-chip" type="button" data-template-preset="|">|</button>
+            <button
+              class="preset-chip"
+              type="button"
+              data-template-preset="{January|February|March|April|May|June|July|August|September|October|November|December}"
+            >
+              {Month}
+            </button>
+            <button
+              class="preset-chip"
+              type="button"
+              data-template-preset="{Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday}"
+            >
+              {Week}
+            </button>
+            <button class="preset-chip" type="button" data-template-preset="{Mon|Tue|Wed|Thu|Fri|Sat|Sun}">
+              {Week short}
+            </button>
+            <button
+              class="preset-chip"
+              type="button"
+              data-template-preset="{A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z}"
+            >
+              {A..Z}
+            </button>
+            <button
+              class="preset-chip"
+              type="button"
+              data-template-preset="{a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z}"
+            >
+              {a..z}
+            </button>
+            <button class="preset-chip" type="button" data-template-preset="{0|1|2|3|4|5|6|7|8|9}">
+              {0..9}
+            </button>
+            <button
+              class="preset-chip"
+              type="button"
+              data-template-preset="{1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31}"
+            >
+              {Day 1..31}
+            </button>
+            <button class="preset-chip" type="button" data-template-preset="{|.|!|?|...}">
+              {Punct}
+            </button>
           </div>
           <small>
             Supports <code>{a|b|c}</code>, <code>{|optional}</code>, <code>[a|b|c]</code>,
