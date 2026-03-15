@@ -10,12 +10,11 @@ const STORAGE_KEY = "random-airat-top-settings-v1";
 const OUTPUT_SEPARATOR = "\n\n";
 const RAND_TOKEN = "%rand%";
 
-const DEFAULT_TEMPLATE = `{{Some|Many|There is a} belief|{Some|Many} think} that
-[+ and +
-  {copywriting|writing texts|copywriting (writing texts)}
-| {rewriting|reworking texts|rewriting (reworking texts)}
-] [{|can successfully}|can] be entrusted to
-[+ - + {a text randomizer|a randomizer of {texts|content}} | a {special|dedicated} {program|tool}].`;
+const DEFAULT_TEMPLATE = `{{Text randomization|Content variation}|Smart text spinning} helps you create {fresh|diverse|non-repetitive} copy fast.
+From one template, generate {multiple versions|many unique variants|different phrasing} for {ads|SEO snippets|social posts}.
+[+,+Synonyms|Permutations|Nested blocks|Optional fragments|%rand% tokens]
+Use it for A/B tests and campaign drafts{|.}
+Output: {Text|JSON|CSV}. ID: %rand%%rand%%rand%`;
 
 const DEFAULTS = {
   count: 3,
